@@ -5,8 +5,8 @@
 </head>
 <body>
 <g:form class="simpleform" style="margin: 0 auto; width:50%;" url="[controller:'user',action:'login']">
-	<fieldset >
-		<legend>Login</legend>
+	<fieldset style="margin-top:50px" >
+		<legend style="padding: 5px">Login</legend>
 		<p class="info">
 			Please login with your username and password. <br />
 			Don't have an account?

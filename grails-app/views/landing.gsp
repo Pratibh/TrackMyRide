@@ -10,12 +10,17 @@
 <head>
     <meta name="layout" content="main">
 
-
 </head>
 
 <body>
-
-<p></p>
+<div >
+    <g:if test="$session.user">
+        <div id="login">
+            ${session?.user?.firstName} ${session?.user?.lastName} |
+            <g:link controller="user" action="logout">Logout</g:link></div>
+    </g:if>
+</div>
+<g:render template="/layouts/menu"></g:render>
 
 </body>
 </html>

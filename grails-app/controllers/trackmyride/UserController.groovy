@@ -1,7 +1,6 @@
 package trackmyride
 
 class UserController {
-
     def register = {
 
         if (request.method == 'POST') {
@@ -12,10 +11,11 @@ class UserController {
                 return [user:u]
             } else {
                 session.user = u
-                redirect(controller:'main')
+                redirect(controller:'landing', action:'register_landing')
             }
-        } else if (session.user) {
-            redirect(controller:'main')
+        }
+        else if (session.user) {
+            redirect(controller:'landing', action: 'register_landing')
         }
     }
     def login = {
@@ -27,7 +27,8 @@ class UserController {
                 redirect(controller:'landing')
             } else {
                 flash.message = "User not found"
-                redirect(controller:'main')
+                redirect(controller:'landing',action: 'login_landing')
+                //redirect(controller:'main')
             }
         } else if (session.user) {
             redirect(controller:'main')
@@ -36,6 +37,6 @@ class UserController {
 
     def logout = {
         session.invalidate()
-        redirect(controller:'main')
+        redirect(controller:'landing',action: 'login_landing')
     }
 }
